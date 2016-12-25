@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import TodoForm from './TodoForm';
+import TodoList from './TodoList';
 
 class TodoApp extends Component {
   render() {
     return (
       <div className="todoApp">
-        Hello React! I am a TODO Application.
+        <h1>TODO Application</h1>
+        <TodoForm />
+        <TodoList />
       </div>
     );
   }

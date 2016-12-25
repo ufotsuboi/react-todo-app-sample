@@ -20,11 +20,22 @@ class TodoApp extends Component {
     this.setState({ todos: todos });
   }
 
+  createTodo(name) {
+    // NOTE: ここでAjaxを用いてサーバサイドに送信・作成してもよい
+    const todo = {
+      id: (Date.now() + Math.floor(Math.random() * 999999)).toString(36),
+      name: name,
+      created_at: (new Date()).toLocaleString()
+    };
+
+    this.setState({ todos: this.state.todos.concat([todo]) });
+  }
+
   render() {
     return (
       <div className="todoApp">
         <h1>TODO Application</h1>
-        <TodoForm />
+        <TodoForm create={this.createTodo.bind(this)} />
         <TodoList todos={this.state.todos} />
       </div>
     );

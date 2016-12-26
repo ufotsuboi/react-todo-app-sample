@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class Todo extends Component {
   handleRemove(e) {
@@ -17,5 +17,12 @@ class Todo extends Component {
     );
   }
 }
+
+Todo.propTypes = {
+  id: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+  created_at: PropTypes.string.isRequired,
+  remove: PropTypes.func.isRequired,
+};
 
 export default Todo;

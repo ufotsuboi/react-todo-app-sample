@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class TodoForm extends Component {
   handleSubmit(e) {
@@ -21,5 +21,9 @@ class TodoForm extends Component {
     );
   }
 }
+
+TodoForm.propTypes = {
+  create: PropTypes.func.isRequired,
+};
 
 export default TodoForm;

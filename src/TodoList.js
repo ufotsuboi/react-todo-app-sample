@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Todo from './Todo';
 
 class TodoList extends Component {
@@ -14,5 +14,10 @@ class TodoList extends Component {
     );
   }
 }
+
+TodoList.propTypes = {
+  todos: PropTypes.array.isRequired,
+  remove: PropTypes.func.isRequired,
+};
 
 export default TodoList;

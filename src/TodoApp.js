@@ -12,7 +12,7 @@ class TodoApp extends Component {
 
   componentDidMount() {
     // NOTE: ここでAjaxを用いてサーバサイドから取得してもよい
-    var todos = [
+    const todos = [
       { id: 'i9tajxy9', name: '牛乳を買う', created_at: '2015/05/01 9:00:00' },
       { id: 'i9ta58tx', name: 'パンを買う', created_at: '2015/05/01 9:00:00' }
     ];
@@ -31,12 +31,19 @@ class TodoApp extends Component {
     this.setState({ todos: this.state.todos.concat([todo]) });
   }
 
+  removeTodo(id) {
+    // NOTE: ここでAjaxを用いてサーバサイドに送信・削除してもよい
+    const newTodos = this.state.todos.filter(todo => todo.id !== id);
+
+    this.setState({ todos: newTodos });
+  }
+
   render() {
     return (
       <div className="todoApp">
         <h1>TODO Application</h1>
         <TodoForm create={this.createTodo.bind(this)} />
-        <TodoList todos={this.state.todos} />
+        <TodoList todos={this.state.todos} remove={this.removeTodo.bind(this)} />
       </div>
     );
   }
